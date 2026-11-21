@@ -13,6 +13,3 @@ __pycache__/
 .coverage
 
 *.sqlite3-*
-presentation/
-
-presentation-maker-prompt.txt

@@ -1,0 +1,178 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+
+\definecolor{paper}{HTML}{F6F4EC}
+\definecolor{ink}{HTML}{10273B}
+\definecolor{muted}{HTML}{415762}
+\definecolor{teal}{HTML}{006558}
+\definecolor{line}{HTML}{ABBDB5}
+\definecolor{mint}{HTML}{A8F1DB}
+\definecolor{light}{HTML}{D6E4E9}
+
+\setbeamercolor{normal text}{fg=ink,bg=paper}
+\setbeamercolor{background canvas}{bg=paper}
+\setbeamercolor{footline}{fg=muted,bg=paper}
+\setbeamersize{text margin left=9mm,text margin right=9mm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3.5mm,dp=2.7mm,leftskip=9mm,rightskip=9mm]{footline}%
+    \fontsize{7.5}{9}\selectfont\bfseries AgentCity Twin\hfill\insertframenumber\ /\ 5
+  \end{beamercolorbox}%
+}
+\graphicspath{{assets/screenshots/}}
+\title{AgentCity Twin | Finalist Pitch}
+\author{AgentCity Twin}
+\hypersetup{pdfsubject={Five-page pitch for an urban decision support prototype},hidelinks}
+
+\newcommand{\eyebrow}[2][teal]{%
+  {\color{#1}\fontsize{9}{11}\selectfont\bfseries\MakeUppercase{#2}\par}%
+}
+\newcommand{\headline}[1]{%
+  {\fontsize{27}{28}\selectfont\bfseries\raggedright #1\par}%
+}
+\newcommand{\bodycopy}[1]{%
+  {\fontsize{12}{15}\selectfont\raggedright #1\par}%
+}
+\newcommand{\smallcopy}[1]{%
+  {\fontsize{10}{12.5}\selectfont\raggedright #1\par}%
+}
+\newcommand{\sourcecopy}[1]{%
+  {\fontsize{7.5}{9}\selectfont\raggedright #1\par}%
+}
+\newcommand{\step}[3]{%
+  \textcolor{teal}{\rule{\linewidth}{0.65pt}}\par\vspace{2mm}%
+  {\fontsize{15}{17}\selectfont\bfseries #1\par}\vspace{1.5mm}%
+  \smallcopy{#2}\vspace{3mm}%
+  \sourcecopy{\textcolor{muted}{#3}}%
+}
+
+\begin{document}
+
+\begin{frame}[t]
+\vspace{5mm}
+\eyebrow{Problem and user}
+\vspace{4mm}
+\headline{One disruption can\\reshape a whole corridor.}
+\vspace{5mm}
+\begin{columns}[T,onlytextwidth]
+  \begin{column}{.48\textwidth}
+    \bodycopy{City traffic managers and transit dispatchers need to keep people moving when a route closes. A diversion can push queues onto nearby streets, so teams need to compare options quickly.}
+  \end{column}
+  \begin{column}{.45\textwidth}
+    {\color{teal}\rule{\linewidth}{0.65pt}}\par
+    \vspace{2mm}
+    \eyebrow{Debrecen \textbullet{} 28 October 2025}
+    \vspace{1.5mm}
+    \smallcopy{A crash on Nagyerdei Boulevard interrupted tram line 1 between the University and the Clinical Centre's Nagyerdei Campus. DKV ran trams on either side of the closed section.}
+    \vspace{2.5mm}
+    \sourcecopy{\href{https://dkv.hu/forgalmi-hirek/4727/baleset-miatt-valtozas-az-1-es-villamosok-kozlekedeseben}{\textcolor{teal}{Source \textbullet{} DKV service alert 4727}}}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\vspace{5mm}
+\eyebrow{Solution}
+\vspace{4mm}
+\begin{columns}[c,onlytextwidth]
+  \begin{column}{.45\textwidth}
+    \headline{Test options\\before acting.}
+    \vspace{4mm}
+    \bodycopy{AgentCity Twin pairs an interactive city map with a model of roads and travel demand. Teams simulate disruptions and compare responses on transit delay, congestion and safety risk.}
+  \end{column}
+  \begin{column}{.51\textwidth}
+    \includegraphics[width=\linewidth]{01-workspace.jpg}\par
+    \vspace{1.5mm}
+    \sourcecopy{\textcolor{muted}{AgentCity Twin workspace \textbullet{} Simulated data}}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\vspace{5mm}
+\eyebrow{How it works}
+\vspace{4mm}
+\headline{From incident to decision.}
+\vspace{7mm}
+\noindent
+\begin{minipage}[t]{.281\textwidth}
+  \step{Set the scenario}{Choose an incident, location and time on the city map.}{Next.js + MapLibre}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.047\textwidth}
+  \vspace{2.5mm}\centering\textcolor{teal}{\large\(\longrightarrow\)}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.303\textwidth}
+  \step{Simulate options}{A worker assigns specialists. A deterministic simulator compares options with the baseline.}{FastAPI + Python network model}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.047\textwidth}
+  \vspace{2.5mm}\centering\textcolor{teal}{\large\(\longrightarrow\)}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.281\textwidth}
+  \step{Check and rank}{A Critic agent checks results. The operator reviews the ranking and run history.}{PostgreSQL + PostGIS audit log}
+\end{minipage}\par
+\vspace{6mm}
+\sourcecopy{\textcolor{muted}{Optional specialist advice runs locally via Bonsai 27B in LM Studio.}}
+\end{frame}
+
+{
+\setbeamercolor{background canvas}{bg=ink}
+\setbeamercolor{footline}{fg=light,bg=ink}
+\begin{frame}[t]
+\color{white}
+\vspace{5mm}
+\eyebrow[mint]{Screenshots}
+\vspace{3mm}
+\headline{Forecasts show the trade-offs.}
+\vspace{2mm}
+\smallcopy{\textcolor{light}{Simulated university corridor incident in Debrecen, 30 minutes after onset.}}
+\vspace{2.5mm}
+\begin{columns}[T,onlytextwidth]
+  \begin{column}{.586\textwidth}
+    \includegraphics[width=\linewidth]{02-forecast.jpg}\par
+    \vspace{1.3mm}
+    \sourcecopy{\textcolor{light}{Forecast map \textbullet{} OpenStreetMap contributors / OpenFreeMap}}
+  \end{column}
+  \begin{column}{.368\textwidth}
+    \includegraphics[width=\linewidth,clip,trim=720bp 0 0 0]{03-comparison.jpg}\par
+    \vspace{1.3mm}
+    \sourcecopy{\textcolor{light}{Outcome comparison from the same run}}
+    \vspace{2mm}
+    {\color{mint}\fontsize{22}{23}\selectfont\bfseries 9.4 \(\rightarrow\) 0.0 min\par}
+    \vspace{0.8mm}
+    \smallcopy{Modeled transit delay with diversion and transit priority.}
+  \end{column}
+\end{columns}
+\end{frame}
+}
+
+\begin{frame}[t]
+\vspace{5mm}
+\eyebrow{Impact and next steps}
+\vspace{4mm}
+\headline{Validate it on\\one real corridor.}
+\vspace{7mm}
+\begin{columns}[T,onlytextwidth]
+  \begin{column}{.45\textwidth}
+    {\color{teal}\rule{\linewidth}{0.65pt}}\par
+    \vspace{2mm}
+    \eyebrow{Who benefits}
+    \vspace{2mm}
+    \bodycopy{Traffic and transit teams can compare options in one place. Riders and nearby residents stand to benefit from responses that keep routes moving and preserve access.}
+  \end{column}
+  \begin{column}{.48\textwidth}
+    {\color{teal}\rule{\linewidth}{0.65pt}}\par
+    \vspace{2mm}
+    \eyebrow{Next step}
+    \vspace{2mm}
+    \bodycopy{Pilot with a city or campus operator. Replay past disruptions and measure the error between predicted and observed travel times before a trial alongside live operations.}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\end{document}
