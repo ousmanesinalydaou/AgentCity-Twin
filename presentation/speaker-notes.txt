@@ -1,0 +1,35 @@
+AGENTCITY TWIN
+Speaker notes for an eight-minute presentation
+
+1. Test city decisions before acting | 0:00–0:55
+City teams often have to choose a response before they can see its wider effects. AgentCity Twin lets them test options in a digital twin first. Point at the Debrecen map and the forecast readout. The demonstration shows a recorded simulation and an example of how a planner could use it.
+
+2. An accident near the university at 17:00 | 0:55–1:50
+The accident occurs near the University of Debrecen during the evening peak. It creates competing goals for the operator. Keep transit moving, preserve essential access, and reduce disruption around campus. Show the map, the scenario input, and the active agent list in the command center. These are the inputs for a modeled exercise.
+
+3. How a scenario becomes a decision | 1:50–2:50
+The operator enters a scenario or selects a preset. The orchestrator selects specialists, and the simulation evaluates the baseline and candidate strategies. Specialists inspect the same modeled outcomes from different perspectives. The workspace’s scoring weights rank the options, and the audit record keeps the evidence. An authorized operator can review the decision.
+
+4. What changes at +30 minutes | 2:50–4:10
+Point at the baseline and recommended columns in the comparison screenshot. Use the exact on-screen values and name the units. The weighted strategy score summarizes several objectives and uses a 100-point scale. The emissions metric shows change from the model’s reference emissions level. If you want to show recovery, switch to the web version and select +120 min. The results describe this scenario’s modeled outcomes.
+
+5. The second simulation | 4:10–5:10
+The specialists can prefer different actions because they optimize different objectives. In this run the orchestrator proposed a combined measure and the worker scored it across all five timeline points. Point at the revised score and initial leading score. Explain why the original strategy can still lead once the workspace weights and the added coordination cost are applied. The audit keeps the dissent.
+
+6. What a reviewer can see | 5:10–6:05
+The trace captures the proposal, the second simulation, the verification checks, and the final decision. Point out the verification event. It records checks on timeline coverage and score bounds. Where a scenario requires approval, a reviewer can record a decision with a note. This supports review of the evidence and the assumptions used.
+
+7. The role of LM Studio | 6:05–7:05
+The Docker stack includes the API, a separate worker, and PostgreSQL/PostGIS. LM Studio supplies specialist advisories using the configured Bonsai model. The network simulation produces the numbers. If the model fails, the agent retains its rule-based finding and the system records a failure notification. The Model Lab demonstrates streaming, image analysis, embeddings, and read-only city tools.
+
+8. From the Debrecen demo to a pilot | 7:05–8:00
+Start with one corridor, an accountable operator, and a useful comparison such as a planned road closure. A pilot needs a local graph, demand estimates, and timestamped observations for calibration. Agree on how to evaluate the result and which data the workspace can share. Close by asking which local decision the audience would want to test first.
+
+Optional live walkthrough
+Open the app at http://localhost:3100 and select University corridor accident. Run the scenario, open Predicted and Recommended, then move from +30 min to +120 min. Open Why did AgentCity choose this? and Audit trace. Allow the worker to finish before discussing exact values. If the running app or model is unavailable, continue with the recorded web walkthrough or slides 4–6.
+
+Extra cases for jury questions
+Tram breakdown downtown. Show how the road-diversion constraint narrows the available strategies and compare transit delay at +30 minutes.
+Stadium departure surge. Show how the larger affected population changes the scenario and compare congestion under staggered departures.
+Morning air-quality alert. Compare the modeled emissions change and explain the role of exposure reduction and monitoring.
+Power outage and essential services. Compare energy load, then show where the operator records a decision for a high-impact recommendation.
