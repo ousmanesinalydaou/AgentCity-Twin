@@ -1,0 +1,17 @@
+{
+  "readings": [
+    {
+      "sensor_id": "TR-02",
+      "value": 540,
+      "observed_at": "2026-11-20T17:00:00+01:00",
+      "name": "University Traffic Loop",
+      "type": "Traffic",
+      "unit": "veh/hr",
+      "coordinates": [
+        21.6247,
+        47.5527
+      ],
+      "radius": 420
+    }
+  ]
+}

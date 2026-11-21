@@ -1,0 +1,9 @@
+{
+  "type":"FeatureCollection",
+  "features":[{
+    "type":"Feature",
+    "geometry":{"type":"Point","coordinates":[21.63201,47.54819]},
+    "properties":{"name":"Example Debrecen sensor"}
+  }]
+}
+

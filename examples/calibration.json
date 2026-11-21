@@ -1,0 +1,82 @@
+[
+  {
+    "metric": "transitDelay",
+    "modeled": 4,
+    "observed": 5.3
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 4.85,
+    "observed": 6.7
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 5.7,
+    "observed": 8
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 6.55,
+    "observed": 8.1
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 7.4,
+    "observed": 8.9
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 8.25,
+    "observed": 10.3
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 9.1,
+    "observed": 11.6
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 9.95,
+    "observed": 11.7
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 10.8,
+    "observed": 12.5
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 11.65,
+    "observed": 13.9
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 12.5,
+    "observed": 15.2
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 13.35,
+    "observed": 15.3
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 14.2,
+    "observed": 16.1
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 15.05,
+    "observed": 17.5
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 15.9,
+    "observed": 18.8
+  },
+  {
+    "metric": "transitDelay",
+    "modeled": 16.75,
+    "observed": 18.9
+  }
+]

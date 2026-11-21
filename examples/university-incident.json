@@ -1,0 +1,14 @@
+{
+  "title":"University corridor incident",
+  "kind":"Emergency",
+  "description":"An accident happens near the University of Debrecen at 17:00 during rush hour.",
+  "location":"University of Debrecen",
+  "coordinates":[21.6257,47.5533],
+  "starts_at":"2026-11-20T17:00:00+01:00",
+  "duration":60,
+  "severity":4,
+  "population":1200,
+  "radius":850,
+  "seed":42
+}
+
