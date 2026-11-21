@@ -1,0 +1,15 @@
+.env
+.venv/
+node_modules/
+.next/
+playwright-report/
+test-results/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.sqlite3
+*.tsbuildinfo
+*.log
+.coverage
+
+*.sqlite3-*

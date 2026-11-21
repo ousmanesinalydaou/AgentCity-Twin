@@ -1,0 +1,553 @@
+{
+  "id": "debrecen",
+  "name": "Debrecen",
+  "country": "Hungary",
+  "center": [
+    21.6264,
+    47.5414
+  ],
+  "zoom": 12.3,
+  "timezone": "Europe/Budapest",
+  "source": "Debrecen demonstration dataset · simulated urban telemetry",
+  "origin": [
+    21.6257,
+    47.5533
+  ],
+  "nodes": {
+    "north": [
+      21.6222,
+      47.5616
+    ],
+    "university": [
+      21.6257,
+      47.5533
+    ],
+    "park": [
+      21.6422,
+      47.556
+    ],
+    "west": [
+      21.6095,
+      47.546
+    ],
+    "center": [
+      21.6277,
+      47.5337
+    ],
+    "east": [
+      21.6468,
+      47.5394
+    ],
+    "station": [
+      21.6251,
+      47.5229
+    ],
+    "southEast": [
+      21.6476,
+      47.5225
+    ],
+    "southWest": [
+      21.6034,
+      47.5282
+    ],
+    "mid": [
+      21.6306,
+      47.5446
+    ]
+  },
+  "edges": [
+    [
+      "north",
+      "university",
+      3,
+      460,
+      [
+        [
+          21.6225,
+          47.5577
+        ],
+        [
+          21.6235,
+          47.5538
+        ]
+      ]
+    ],
+    [
+      "university",
+      "mid",
+      4,
+      650,
+      [
+        [
+          21.6271,
+          47.5505
+        ],
+        [
+          21.6307,
+          47.5483
+        ]
+      ]
+    ],
+    [
+      "mid",
+      "center",
+      5,
+      740,
+      [
+        [
+          21.6307,
+          47.5413
+        ],
+        [
+          21.6291,
+          47.5372
+        ]
+      ]
+    ],
+    [
+      "university",
+      "west",
+      5,
+      540,
+      [
+        [
+          21.6213,
+          47.5508
+        ],
+        [
+          21.614,
+          47.5486
+        ]
+      ]
+    ],
+    [
+      "west",
+      "southWest",
+      5,
+      580,
+      [
+        [
+          21.6092,
+          47.538
+        ],
+        [
+          21.606,
+          47.534
+        ]
+      ]
+    ],
+    [
+      "southWest",
+      "station",
+      5,
+      630,
+      [
+        [
+          21.6133,
+          47.5268
+        ],
+        [
+          21.618,
+          47.5243
+        ]
+      ]
+    ],
+    [
+      "north",
+      "park",
+      5,
+      520,
+      [
+        [
+          21.627,
+          47.5618
+        ],
+        [
+          21.637,
+          47.5601
+        ]
+      ]
+    ],
+    [
+      "park",
+      "east",
+      6,
+      620,
+      [
+        [
+          21.6462,
+          47.5505
+        ],
+        [
+          21.647,
+          47.545
+        ]
+      ]
+    ],
+    [
+      "east",
+      "southEast",
+      6,
+      710,
+      [
+        [
+          21.649,
+          47.533
+        ],
+        [
+          21.649,
+          47.527
+        ]
+      ]
+    ],
+    [
+      "southEast",
+      "station",
+      5,
+      620,
+      [
+        [
+          21.6427,
+          47.5227
+        ],
+        [
+          21.633,
+          47.5222
+        ]
+      ]
+    ],
+    [
+      "park",
+      "mid",
+      5,
+      540,
+      [
+        [
+          21.6401,
+          47.5503
+        ],
+        [
+          21.6368,
+          47.5462
+        ]
+      ]
+    ],
+    [
+      "west",
+      "center",
+      6,
+      600,
+      [
+        [
+          21.6134,
+          47.5415
+        ],
+        [
+          21.6219,
+          47.5359
+        ]
+      ]
+    ],
+    [
+      "center",
+      "station",
+      4,
+      700,
+      [
+        [
+          21.6273,
+          47.5292
+        ],
+        [
+          21.6258,
+          47.525
+        ]
+      ]
+    ],
+    [
+      "center",
+      "east",
+      6,
+      620,
+      [
+        [
+          21.6369,
+          47.5354
+        ],
+        [
+          21.6424,
+          47.537
+        ]
+      ]
+    ]
+  ],
+  "demand": [
+    [
+      "north",
+      "station",
+      390
+    ],
+    [
+      "west",
+      "east",
+      240
+    ],
+    [
+      "park",
+      "center",
+      260
+    ],
+    [
+      "university",
+      "station",
+      490
+    ],
+    [
+      "southWest",
+      "east",
+      180
+    ],
+    [
+      "north",
+      "east",
+      270
+    ]
+  ],
+  "districts": [
+    [
+      "Nagyerdő",
+      21.6313,
+      47.559
+    ],
+    [
+      "Egyetemváros",
+      21.6128,
+      47.5513
+    ],
+    [
+      "Debrecen",
+      21.6238,
+      47.5324
+    ],
+    [
+      "Csapókert",
+      21.654,
+      47.5475
+    ],
+    [
+      "Tócóskert",
+      21.6003,
+      47.533
+    ]
+  ],
+  "incidents": [
+    {
+      "id": "incident-university",
+      "name": "University corridor slowdown",
+      "type": "Congestion",
+      "severity": 4,
+      "coordinates": [
+        21.6307,
+        47.5483
+      ],
+      "location": "University of Debrecen",
+      "age": "4 min"
+    },
+    {
+      "id": "incident-center",
+      "name": "City center works",
+      "type": "Construction",
+      "severity": 2,
+      "coordinates": [
+        21.6288,
+        47.5331
+      ],
+      "location": "Kossuth tér",
+      "age": "18 min"
+    },
+    {
+      "id": "incident-east",
+      "name": "East district speed restriction",
+      "type": "Road restriction",
+      "severity": 2,
+      "coordinates": [
+        21.649,
+        47.533
+      ],
+      "location": "Csapókert",
+      "age": "32 min"
+    }
+  ],
+  "sensors": [
+    {
+      "id": "AQ-01",
+      "name": "Nagyerdő Air Monitor",
+      "type": "Air quality",
+      "coordinates": [
+        21.6393,
+        47.5576
+      ],
+      "unit": "µg/m³",
+      "reading": 19,
+      "uptime": 99.8,
+      "radius": 550,
+      "confidence": 0.96,
+      "online": true
+    },
+    {
+      "id": "TR-02",
+      "name": "University Traffic Loop",
+      "type": "Traffic",
+      "coordinates": [
+        21.6247,
+        47.5527
+      ],
+      "unit": "veh/hr",
+      "reading": 468,
+      "uptime": 99.9,
+      "radius": 420,
+      "confidence": 0.98,
+      "online": true
+    },
+    {
+      "id": "FT-03",
+      "name": "Kossuth Square Footfall",
+      "type": "Footfall",
+      "coordinates": [
+        21.6254,
+        47.5337
+      ],
+      "unit": "people/hr",
+      "reading": 272,
+      "uptime": 98.4,
+      "radius": 300,
+      "confidence": 0.9,
+      "online": true
+    },
+    {
+      "id": "WX-04",
+      "name": "East Weather Station",
+      "type": "Weather",
+      "coordinates": [
+        21.6506,
+        47.5426
+      ],
+      "unit": "°C",
+      "reading": 16,
+      "uptime": 99.2,
+      "radius": 1200,
+      "confidence": 0.95,
+      "online": true
+    },
+    {
+      "id": "EN-05",
+      "name": "Campus Substation",
+      "type": "Energy",
+      "coordinates": [
+        21.6104,
+        47.5519
+      ],
+      "unit": "kW",
+      "reading": 428,
+      "uptime": 97.1,
+      "radius": 450,
+      "confidence": 0.9,
+      "online": true
+    },
+    {
+      "id": "NS-06",
+      "name": "South District Noise Monitor",
+      "type": "Noise",
+      "coordinates": [
+        21.615,
+        47.526
+      ],
+      "unit": "dB",
+      "reading": null,
+      "uptime": 91.4,
+      "radius": 300,
+      "confidence": 0,
+      "online": false
+    },
+    {
+      "id": "PK-07",
+      "name": "Rail Station Parking",
+      "type": "Parking",
+      "coordinates": [
+        21.6265,
+        47.5218
+      ],
+      "unit": "%",
+      "reading": 72,
+      "uptime": 98.8,
+      "radius": 180,
+      "confidence": 0.91,
+      "online": true
+    },
+    {
+      "id": "OC-08",
+      "name": "Campus Occupancy Counter",
+      "type": "Campus occupancy",
+      "coordinates": [
+        21.6215,
+        47.554
+      ],
+      "unit": "people",
+      "reading": 358,
+      "uptime": 99.1,
+      "radius": 260,
+      "confidence": 0.94,
+      "online": true
+    }
+  ],
+  "transit": [
+    {
+      "id": "T1",
+      "name": "Tram 1 · University–Station",
+      "mode": "tram",
+      "nodes": [
+        "north",
+        "university",
+        "mid",
+        "center",
+        "station"
+      ],
+      "color": "#aa8dfa",
+      "frequency": 12
+    },
+    {
+      "id": "B24",
+      "name": "Bus 24 · West–East",
+      "mode": "bus",
+      "nodes": [
+        "west",
+        "center",
+        "east",
+        "park"
+      ],
+      "color": "#4b9bff",
+      "frequency": 18
+    },
+    {
+      "id": "C1",
+      "name": "Campus cycle link",
+      "mode": "bike",
+      "nodes": [
+        "north",
+        "park",
+        "mid",
+        "center"
+      ],
+      "color": "#42cda5",
+      "frequency": null
+    }
+  ],
+  "kpis": {
+    "traffic": 78,
+    "mobility": 86,
+    "environment": 92,
+    "safety": 94,
+    "energy": 89,
+    "campus": 72
+  }
+}
