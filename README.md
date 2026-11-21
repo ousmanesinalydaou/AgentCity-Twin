@@ -87,3 +87,6 @@ Start with the [documentation index](docs/README.md), [product overview](docs/pr
 [Workspace screenshot](docs/images/workspace.jpg) · [Recommendation screenshot](docs/images/recommendation.jpg)
 
 Use the [operations guide](docs/operations.md) to connect data feeds, calibrate simulations, configure SSO, and manage delivery and monitoring.
+
+## AI tool used
+We use Codex and GPT-6.2 Sol to generate code, documentation, and tests. The AI tool is used to assist with development.
