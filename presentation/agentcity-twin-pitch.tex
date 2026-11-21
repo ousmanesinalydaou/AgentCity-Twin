@@ -2,177 +2,243 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 
-\definecolor{paper}{HTML}{F6F4EC}
-\definecolor{ink}{HTML}{10273B}
-\definecolor{muted}{HTML}{415762}
-\definecolor{teal}{HTML}{006558}
-\definecolor{line}{HTML}{ABBDB5}
-\definecolor{mint}{HTML}{A8F1DB}
-\definecolor{light}{HTML}{D6E4E9}
+\definecolor{midnight}{HTML}{091421}
+\definecolor{panel}{HTML}{102234}
+\definecolor{paneldark}{HTML}{0C1B2B}
+\definecolor{grid}{HTML}{14273A}
+\definecolor{rulecolor}{HTML}{304C62}
+\definecolor{whiteink}{HTML}{F3F8FC}
+\definecolor{soft}{HTML}{B8CAD9}
+\definecolor{aqua}{HTML}{74F3DA}
+\definecolor{violetink}{HTML}{C5B8FF}
+\definecolor{warningink}{HTML}{FFC09D}
 
-\setbeamercolor{normal text}{fg=ink,bg=paper}
-\setbeamercolor{background canvas}{bg=paper}
-\setbeamercolor{footline}{fg=muted,bg=paper}
-\setbeamersize{text margin left=9mm,text margin right=9mm}
+\setbeamercolor{normal text}{fg=whiteink,bg=midnight}
+\setbeamercolor{background canvas}{bg=midnight}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}{%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=3.5mm,dp=2.7mm,leftskip=9mm,rightskip=9mm]{footline}%
-    \fontsize{7.5}{9}\selectfont\bfseries AgentCity Twin\hfill\insertframenumber\ /\ 5
-  \end{beamercolorbox}%
-}
-\graphicspath{{assets/screenshots/}}
+\graphicspath{{assets/}{assets/screenshots/}}
 \title{AgentCity Twin | Finalist Pitch}
 \author{AgentCity Twin}
-\hypersetup{pdfsubject={Five-page pitch for an urban decision support prototype},hidelinks}
+\hypersetup{pdfsubject={University of Debrecen Agentic AI Hackathon},hidelinks}
 
-\newcommand{\eyebrow}[2][teal]{%
-  {\color{#1}\fontsize{9}{11}\selectfont\bfseries\MakeUppercase{#2}\par}%
+\tikzset{
+  copy/.style={anchor=north west,inner sep=0pt,outer sep=0pt,align=left},
+  route/.style={draw=aqua,line width=.5pt,-{Stealth[length=1.5mm,width=1.1mm]}},
+  rail/.style={draw=rulecolor,line width=.45pt},
 }
-\newcommand{\headline}[1]{%
-  {\fontsize{27}{28}\selectfont\bfseries\raggedright #1\par}%
+\newcommand{\type}[2]{\fontsize{#1}{#2}\selectfont}
+\newcommand{\atcopy}[5]{%
+  \node[copy,text width=#3mm] at (#1,#2) {#4\raggedright #5};%
 }
-\newcommand{\bodycopy}[1]{%
-  {\fontsize{12}{15}\selectfont\raggedright #1\par}%
+\newcommand{\caps}[2]{\type{7.7}{9}\bfseries\color{#1}\MakeUppercase{#2}}
+\newcommand{\pitchtitle}[2]{%
+  \atcopy{8}{14}{144}{\type{#1}{#1}\bfseries\color{whiteink}}{#2}%
 }
-\newcommand{\smallcopy}[1]{%
-  {\fontsize{10}{12.5}\selectfont\raggedright #1\par}%
+\newcommand{\framedshot}[5]{%
+  \node[copy,draw=rulecolor,line width=.4pt] at (#1,#2)
+    {\includegraphics[width=#3mm,#4]{#5}};%
 }
-\newcommand{\sourcecopy}[1]{%
-  {\fontsize{7.5}{9}\selectfont\raggedright #1\par}%
+\newenvironment{pitchpage}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]
+      \node[copy] at (8,4) {\includegraphics[width=5mm]{pitch-logo.png}};
+      \node[anchor=west,inner sep=0pt] at (15,6.5)
+        {\type{9}{10}\bfseries AgentCity \textcolor{aqua}{Twin}};
+      \node[anchor=east,inner sep=0pt] at (152,6.5) {\caps{aqua}{#1}};
+      \draw[rail] (8,11) -- (152,11);
+      \draw[rail] (8,85.5) -- (152,85.5);
+      \atcopy{8}{86.7}{125}{\type{7}{8}\color{soft}}{Agentic AI Hackathon \enspace\textbullet\enspace University of Debrecen}
+      \node[anchor=east,inner sep=0pt] at (152,87.8)
+        {\type{7}{8}\bfseries\color{soft}#2\,/\,05};
+}{%
+    \end{scope}
+  \end{tikzpicture}%
 }
-\newcommand{\step}[3]{%
-  \textcolor{teal}{\rule{\linewidth}{0.65pt}}\par\vspace{2mm}%
-  {\fontsize{15}{17}\selectfont\bfseries #1\par}\vspace{1.5mm}%
-  \smallcopy{#2}\vspace{3mm}%
-  \sourcecopy{\textcolor{muted}{#3}}%
+\newcommand{\who}[3]{%
+  \atcopy{96}{#1}{56}{\type{10}{11}\bfseries}{#2}%
+  \atcopy{96}{#1+3.7}{56}{\type{8.3}{9.6}\color{soft}}{#3}%
+}
+\newcommand{\orbitlabel}[3]{%
+  \node[draw=rulecolor,fill=paneldark,rounded corners=.75mm,
+        minimum width=17mm,minimum height=4mm,inner sep=.5mm,
+        font=\type{8.1}{9}\bfseries,text=soft] at (#1,#2) {#3};%
+}
+\newcommand{\productstep}[3]{%
+  \draw[aqua,line width=.65pt] (#1,71.5) -- (#1+6,71.5);
+  \atcopy{#1}{73}{43}{\type{10}{11}\bfseries}{#2}%
+  \atcopy{#1}{77.5}{43}{\type{8.5}{10}\color{soft}}{#3}%
+}
+\newcommand{\workflowstage}[4]{%
+  \path[draw=rulecolor,fill=panel,rounded corners=.8mm] (#1,32.5) rectangle (#1+21.5,48.8);
+  \atcopy{#1+1.6}{34.1}{18.7}{\type{7.65}{8.6}\bfseries\color{#4}}{#2}%
+  \atcopy{#1+1.6}{42.1}{18.7}{\type{7.1}{8}\color{whiteink}}{#3}%
+}
+\newcommand{\specialist}[3]{%
+  \atcopy{#1}{55.2}{26}{\type{8.2}{9}\bfseries\color{violetink}}{#2}%
+  \atcopy{#1}{59.3}{26}{\type{7.7}{9.2}\color{soft}}{#3}%
+}
+\newcommand{\beneficiary}[4]{%
+  \atcopy{#1}{#2}{36}{\type{9.1}{10}\bfseries}{#3}%
+  \atcopy{#1}{#2+3.6}{35}{\type{8.15}{9.55}\color{soft}}{#4}%
+}
+\newcommand{\roadmapstep}[3]{%
+  \fill[aqua] (87,#1+1.5) circle[radius=.62mm];
+  \atcopy{90}{#1}{13}{\type{7.6}{8.5}\bfseries\color{aqua}}{\MakeUppercase{#2}}%
+  \atcopy{105}{#1-.15}{47}{\type{8.6}{10.3}}{#3}%
 }
 
 \begin{document}
 
-\begin{frame}[t]
-\vspace{5mm}
-\eyebrow{Problem and user}
-\vspace{4mm}
-\headline{One disruption can\\reshape a whole corridor.}
-\vspace{5mm}
-\begin{columns}[T,onlytextwidth]
-  \begin{column}{.48\textwidth}
-    \bodycopy{City traffic managers and transit dispatchers need to keep people moving when a route closes. A diversion can push queues onto nearby streets, so teams need to compare options quickly.}
-  \end{column}
-  \begin{column}{.45\textwidth}
-    {\color{teal}\rule{\linewidth}{0.65pt}}\par
-    \vspace{2mm}
-    \eyebrow{Debrecen \textbullet{} 28 October 2025}
-    \vspace{1.5mm}
-    \smallcopy{A crash on Nagyerdei Boulevard interrupted tram line 1 between the University and the Clinical Centre's Nagyerdei Campus. DKV ran trams on either side of the closed section.}
-    \vspace{2.5mm}
-    \sourcecopy{\href{https://dkv.hu/forgalmi-hirek/4727/baleset-miatt-valtozas-az-1-es-villamosok-kozlekedeseben}{\textcolor{teal}{Source \textbullet{} DKV service alert 4727}}}
-  \end{column}
-\end{columns}
+\begin{frame}[plain]
+\begin{pitchpage}{Problem and user}{01}
+  \pitchtitle{18.7}{Urban decisions are hard to get right in real time}
+  \atcopy{8}{23.8}{144}{\type{10}{12}\color{soft}}{Monitoring shows the disruption. Operators still have to choose a response.}
+
+  \framedshot{8}{30.3}{81}{}{02-forecast.jpg}
+  \path[fill=midnight,fill opacity=.94,rounded corners=.7mm] (10,32.3) rectangle (61,42.6);
+  \atcopy{12}{33.5}{48}{\type{7.7}{8.6}\bfseries\color{warningink}}{17:00 \enspace\textbullet\enspace SIMULATED ACCIDENT}
+  \atcopy{12}{38}{48}{\type{9}{10}\bfseries}{University of Debrecen}
+
+  \atcopy{96}{30.5}{56}{}{\caps{aqua}{Who needs to respond}}
+  \who{37}{City operators}{Coordinate incidents and infrastructure.}
+  \who{45.3}{Campus administrators}{Manage crowds and campus access.}
+  \who{53.6}{Transport planners}{Keep roads and public transport moving.}
+  \who{61.9}{Emergency coordinators}{Keep response routes accessible.}
+
+  \atcopy{8}{71.9}{144}{\type{8.5}{10}\bfseries\color{soft}}{%
+    \textcolor{warningink}{Accident} \enspace\(\rightarrow\)\enspace Congestion and crowding
+    \enspace\(\rightarrow\)\enspace Transit delay \enspace\(\rightarrow\)\enspace Emissions and access risk}
+  \draw[rail] (8,77) -- (152,77);
+  \atcopy{8}{79.2}{29}{}{\caps{warningink}{28 Oct 2025}}
+  \atcopy{33}{79}{94}{\type{8.25}{9.2}}{A crash halted tram 1 near the University of Debrecen.}
+  \node[anchor=north east,inner sep=0pt,text=aqua,font=\type{8.15}{9}\bfseries] at (152,79)
+    {\href{https://dkv.hu/forgalmi-hirek/4727/baleset-miatt-valtozas-az-1-es-villamosok-kozlekedeseben}{DKV alert 4727}};
+\end{pitchpage}
 \end{frame}
 
-\begin{frame}[t]
-\vspace{5mm}
-\eyebrow{Solution}
-\vspace{4mm}
-\begin{columns}[c,onlytextwidth]
-  \begin{column}{.45\textwidth}
-    \headline{Test options\\before acting.}
-    \vspace{4mm}
-    \bodycopy{AgentCity Twin pairs an interactive city map with a model of roads and travel demand. Teams simulate disruptions and compare responses on transit delay, congestion and safety risk.}
-  \end{column}
-  \begin{column}{.51\textwidth}
-    \includegraphics[width=\linewidth]{01-workspace.jpg}\par
-    \vspace{1.5mm}
-    \sourcecopy{\textcolor{muted}{AgentCity Twin workspace \textbullet{} Simulated data}}
-  \end{column}
-\end{columns}
+\begin{frame}[plain]
+\begin{pitchpage}{Solution}{02}
+  \pitchtitle{25}{Meet AgentCity Twin}
+  \atcopy{8}{25.2}{144}{\type{10.7}{12.9}}{AgentCity Twin uses specialized agents to analyze urban incidents, simulate responses and recommend the best verified option for operator review.}
+
+  \begin{scope}
+    \clip[rounded corners=1mm] (8,36) rectangle (152,69);
+    \fill[paneldark] (8,36) rectangle (152,69);
+    \foreach \x in {11,17,...,149} {\draw[grid,line width=.35pt] (\x,36) -- (\x,69);}
+    \foreach \y in {38,44,...,68} {\draw[grid,line width=.35pt] (8,\y) -- (152,\y);}
+  \end{scope}
+  \draw[rail,rounded corners=1mm] (8,36) rectangle (152,69);
+  \draw[route] (43,52.5) -- (51.5,52.5);
+  \draw[route] (108.5,52.5) -- (117,52.5);
+  \foreach \x in {59,80,101} {
+    \draw[rail] (\x,43) -- (\x,46);
+    \draw[rail] (\x,59) -- (\x,62);
+  }
+  \orbitlabel{59}{41.15}{Traffic}
+  \orbitlabel{80}{41.15}{Mobility}
+  \orbitlabel{101}{41.15}{Environment}
+  \orbitlabel{59}{64}{Safety}
+  \orbitlabel{80}{64}{Campus}
+  \orbitlabel{101}{64}{Simulation}
+  \path[draw=aqua,fill=panel,rounded corners=1mm,line width=.65pt] (52,45.5) rectangle (108,59.5);
+  \node[anchor=north,inner sep=0pt,font=\type{13.5}{15}\bfseries] at (80,46.7)
+    {AgentCity \textcolor{aqua}{Twin}};
+  \node[anchor=north,inner sep=0pt,align=center,text=soft,font=\type{7.9}{9}]
+    at (80,52.5) {An Agentic Digital Twin for\\Intelligent Urban Decision-Making};
+
+  \atcopy{13}{47.4}{30}{}{\caps{whiteink}{Real city}}
+  \atcopy{13}{52.5}{30}{\type{8.7}{10}\color{soft}}{Debrecen, Hungary}
+  \atcopy{119}{47.4}{30}{}{\caps{whiteink}{Simulate before acting}}
+  \atcopy{119}{56.4}{30}{\type{8.7}{10}\color{soft}}{Compare responses}
+
+  \productstep{8}{Observe}{Locate the campus accident.}
+  \productstep{57}{Simulate}{Test responses on the map.}
+  \productstep{106}{Decide}{Recommend a verified option.}
+  \atcopy{8}{81.9}{144}{\type{7.5}{8.5}\color{soft}}{Understand the city before changing it.}
+\end{pitchpage}
 \end{frame}
 
-\begin{frame}[t]
-\vspace{5mm}
-\eyebrow{How it works}
-\vspace{4mm}
-\headline{From incident to decision.}
-\vspace{7mm}
-\noindent
-\begin{minipage}[t]{.281\textwidth}
-  \step{Set the scenario}{Choose an incident, location and time on the city map.}{Next.js + MapLibre}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{.047\textwidth}
-  \vspace{2.5mm}\centering\textcolor{teal}{\large\(\longrightarrow\)}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{.303\textwidth}
-  \step{Simulate options}{A worker assigns specialists. A deterministic simulator compares options with the baseline.}{FastAPI + Python network model}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{.047\textwidth}
-  \vspace{2.5mm}\centering\textcolor{teal}{\large\(\longrightarrow\)}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{.281\textwidth}
-  \step{Check and rank}{A Critic agent checks results. The operator reviews the ranking and run history.}{PostgreSQL + PostGIS audit log}
-\end{minipage}\par
-\vspace{6mm}
-\sourcecopy{\textcolor{muted}{Optional specialist advice runs locally via Bonsai 27B in LM Studio.}}
+\begin{frame}[plain]
+\begin{pitchpage}{How it works}{03}
+  \pitchtitle{21}{Autonomous agents turn a city problem\\into a verified decision}
+  \foreach \x in {29.5,54,78.5,103,127.5} {\draw[route] (\x+.32,41.2) -- (\x+2.65,41.2);}
+  \draw[route] (39.4,48.8) -- (39.4,51.3);
+  \draw[route] (68.1,51.3) -- (68.1,48.8);
+  \workflowstage{8}{User scenario}{17:00 campus\\accident}{warningink}
+  \workflowstage{32.5}{City\\orchestrator}{Plans and\\delegates}{aqua}
+  \workflowstage{57}{Simulation\\+ digital twin}{Tests response\\options}{violetink}
+  \workflowstage{81.5}{Critic agent}{Checks routes\\and constraints}{aqua}
+  \workflowstage{106}{Decision agent}{Ranks valid\\options}{aqua}
+  \workflowstage{130.5}{Recommended\\response}{Map and\\operator review}{aqua}
+
+  \path[draw=rulecolor,fill=paneldark,rounded corners=.8mm] (8,51.3) rectangle (152,67.5);
+  \atcopy{10}{52.2}{131}{}{\type{7}{8}\bfseries\color{soft}\MakeUppercase{Parallel specialist agents}}
+  \specialist{10}{Traffic}{Road congestion}
+  \specialist{38.5}{Mobility}{Transit and reroutes}
+  \specialist{67}{Environment}{Emissions estimates}
+  \specialist{95.5}{Safety}{Risk and access}
+  \specialist{124}{Campus}{Pedestrian demand}
+
+  \atcopy{8}{69.8}{144}{\type{9.1}{10}\bfseries\color{aqua}}{%
+    Plan \enspace\(\rightarrow\)\enspace Use tools \enspace\(\rightarrow\)\enspace Observe
+    \enspace\(\rightarrow\)\enspace Replan \enspace\(\rightarrow\)\enspace Verify
+    \enspace\(\rightarrow\)\enspace Complete}
+  \draw[rail] (8,74.4) -- (152,74.4);
+  \atcopy{8}{76}{144}{\type{8}{9.1}\color{soft}}{%
+    \textbf{Map} \thinspace MapLibre / OpenStreetMap / OpenFreeMap
+    \enspace\textbf{Engine} \thinspace FastAPI + Python road graph
+    \enspace\textbf{Data} \thinspace PostGIS}
+  \atcopy{8}{80.7}{144}{\type{8.1}{9.1}\color{soft}}{%
+    \textbf{AI gateway} \enspace LM Studio (Bonsai 27B), OpenAI, Azure, Gemini or custom providers for agent advisories.}
+\end{pitchpage}
 \end{frame}
 
-{
-\setbeamercolor{background canvas}{bg=ink}
-\setbeamercolor{footline}{fg=light,bg=ink}
-\begin{frame}[t]
-\color{white}
-\vspace{5mm}
-\eyebrow[mint]{Screenshots}
-\vspace{3mm}
-\headline{Forecasts show the trade-offs.}
-\vspace{2mm}
-\smallcopy{\textcolor{light}{Simulated university corridor incident in Debrecen, 30 minutes after onset.}}
-\vspace{2.5mm}
-\begin{columns}[T,onlytextwidth]
-  \begin{column}{.586\textwidth}
-    \includegraphics[width=\linewidth]{02-forecast.jpg}\par
-    \vspace{1.3mm}
-    \sourcecopy{\textcolor{light}{Forecast map \textbullet{} OpenStreetMap contributors / OpenFreeMap}}
-  \end{column}
-  \begin{column}{.368\textwidth}
-    \includegraphics[width=\linewidth,clip,trim=720bp 0 0 0]{03-comparison.jpg}\par
-    \vspace{1.3mm}
-    \sourcecopy{\textcolor{light}{Outcome comparison from the same run}}
-    \vspace{2mm}
-    {\color{mint}\fontsize{22}{23}\selectfont\bfseries 9.4 \(\rightarrow\) 0.0 min\par}
-    \vspace{0.8mm}
-    \smallcopy{Modeled transit delay with diversion and transit priority.}
-  \end{column}
-\end{columns}
-\end{frame}
-}
+\begin{frame}[plain]
+\begin{pitchpage}{Screenshots}{04}
+  \pitchtitle{25}{Working product}
+  \atcopy{8}{24.3}{144}{\type{9.5}{11}\color{soft}}{Simulated 17:00 campus accident \enspace\textbullet\enspace Recommended response \enspace diversion and transit priority}
 
-\begin{frame}[t]
-\vspace{5mm}
-\eyebrow{Impact and next steps}
-\vspace{4mm}
-\headline{Validate it on\\one real corridor.}
-\vspace{7mm}
-\begin{columns}[T,onlytextwidth]
-  \begin{column}{.45\textwidth}
-    {\color{teal}\rule{\linewidth}{0.65pt}}\par
-    \vspace{2mm}
-    \eyebrow{Who benefits}
-    \vspace{2mm}
-    \bodycopy{Traffic and transit teams can compare options in one place. Riders and nearby residents stand to benefit from responses that keep routes moving and preserve access.}
-  \end{column}
-  \begin{column}{.48\textwidth}
-    {\color{teal}\rule{\linewidth}{0.65pt}}\par
-    \vspace{2mm}
-    \eyebrow{Next step}
-    \vspace{2mm}
-    \bodycopy{Pilot with a city or campus operator. Replay past disruptions and measure the error between predicted and observed travel times before a trial alongside live operations.}
-  \end{column}
-\end{columns}
+  \framedshot{8}{30}{73}{}{01-workspace.jpg}
+  \framedshot{85}{30}{67}{clip,trim=0 280bp 0 0}{07-execution-plan.jpg}
+  \atcopy{85}{47}{67}{\type{8.5}{9.5}\color{soft}}{\textbf{\textcolor{whiteink}{Repeat run}} \enspace 19 tool calls and 1 revision}
+  \framedshot{85}{53}{67}{clip,trim=720bp 0 0 0}{03-comparison.jpg}
+  \atcopy{8}{81.6}{73}{\type{8.5}{9.5}\color{soft}}{\textbf{\textcolor{whiteink}{Debrecen dashboard}} \enspace Map, agents and scenarios}
+  \atcopy{85}{81.6}{67}{\type{8.5}{9.5}\color{soft}}{\textbf{\textcolor{whiteink}{+30 min transit delay}} \enspace \textcolor{aqua}{9.4 \(\rightarrow\) 0.0 min}}
+\end{pitchpage}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{pitchpage}{Impact and next steps}{05}
+  \pitchtitle{22}{From smarter responses to smarter cities}
+  \atcopy{8}{24.5}{144}{\type{8.8}{10.5}\bfseries\color{aqua}}{%
+    Faster decisions \enspace\textbullet\enspace Safer responses \enspace\textbullet\enspace Better mobility
+    \enspace\textbullet\enspace Lower emissions \enspace\textbullet\enspace Explainable AI}
+  \draw[rail] (8,30.2) -- (152,30.2);
+  \atcopy{8}{32.4}{74}{}{\caps{soft}{Who benefits}}
+  \atcopy{85}{32.4}{67}{}{\caps{soft}{Roadmap}}
+
+  \beneficiary{8}{39}{Cities and municipalities}{Coordinate responses.}
+  \beneficiary{46}{39}{University campuses}{Plan safer campus events.}
+  \beneficiary{8}{49.6}{Transport operators}{Evaluate detours.}
+  \beneficiary{46}{49.6}{Emergency teams}{Assess emergency access.}
+  \beneficiary{8}{61}{Environmental teams}{Factor in emissions.}
+  \beneficiary{46}{61}{Researchers}{Test urban models and agents.}
+
+  \draw[rail] (87,40.5) -- (87,65.2);
+  \roadmapstep{39}{Now}{Debrecen prototype with a\\campus accident scenario.}
+  \roadmapstep{46.8}{Next}{Connect traffic, transit, weather\\and sensor feeds in a corridor pilot.}
+  \roadmapstep{54.6}{Expand}{Validate forecasts against observed\\conditions and add scenarios.}
+  \roadmapstep{62.4}{Scale}{Deploy to new cities and campuses.}
+
+  \path[fill=panel,rounded corners=.8mm] (8,72.9) rectangle (152,83.3);
+  \draw[aqua,line width=1.2pt] (8.4,74.1) -- (8.4,82.1);
+  \atcopy{11}{74.6}{137}{\type{11}{12}\bfseries}{%
+    AgentCity Twin can become an intelligent decision-support layer for cities,\\
+    \textcolor{aqua}{starting with Debrecen.}}
+\end{pitchpage}
 \end{frame}
 
 \end{document}
