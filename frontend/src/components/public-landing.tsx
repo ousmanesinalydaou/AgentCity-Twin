@@ -14,10 +14,10 @@ import { Dialog, ErrorText } from "./ui";
 
 const Map = dynamic(()=>import("./map/city-map"),{ssr:false,loading:()=> <div className="map-area debrecen-fallback"/>});
 const features = [
-  {icon:Layers3,title:"Model city conditions",text:"Bring a street network, sensors, transit routes, and incidents into a single map. Choose the layers relevant to the decision."},
-  {icon:Bot,title:"Coordinate specialist agents",text:"Traffic, mobility, environment, safety, and campus agents assess a shared scenario against distinct objectives."},
-  {icon:Activity,title:"Compare simulated interventions",text:"A seeded network simulation evaluates each response against the baseline over five intervals."},
-  {icon:BadgeCheck,title:"Explain the recommendation",text:"Inspect the evidence, weighted scores, agent disagreements, and verification in the audit trace."},
+  {icon:Layers3,title:"Model city conditions",text:"The digital twin brings the road network, transit routes, sensors, and incidents into one map. Each layer helps you see what a decision could affect."},
+  {icon:Bot,title:"Coordinate specialist agents",text:"The orchestrator builds a plan and assigns work to specialists in traffic, transit, safety, and other relevant areas. The execution plan shows their tools and findings."},
+  {icon:Activity,title:"Compare simulated interventions",text:"Compare a forecast with no new action against the recommended response. Move through five time points to see how the effects change."},
+  {icon:BadgeCheck,title:"Explain the recommendation",text:"The Critic checks the results before the decision agent ranks them. Inspect the evidence and record an operator review when required."},
   {icon:LockKeyhole,title:"Control model execution",text:"Keep model execution local or connect approved cloud providers. Workspace policy controls where advisory requests run."},
   {icon:FlaskConical,title:"Repeat experiments",text:"Adjust assumptions, compare agent or provider configurations, and export the run with its seed and input fingerprint."},
 ];
@@ -53,7 +53,7 @@ export function PublicLanding() {
       <section className="public-hero"><div>
         <div className="eyebrow">{t("Urban decision intelligence")}</div>
         <h1>{t("Understand the city")} <span>{t("before changing it.")}</span></h1>
-        <p>{t("Simulate urban disruptions, compare interventions, and see the evidence behind each recommendation.")}</p>
+        <p>{t("See how a road closure, transit disruption, or campus event could affect the rest of the city. Compare responses before putting a decision into practice.")}</p>
         <div className="public-actions"><Link className="button primary" href="/">{t("Launch Digital Twin")}</Link>
           <button className="button secondary" onClick={open}>{t("Explore Demo")}</button></div>
       </div><div className="hero-map">
@@ -74,7 +74,7 @@ export function PublicLanding() {
           <Link className="button primary" href="/account?mode=register">{t("Create account")}</Link></div>
       </section>
       <section className="public-section" id="about"><h2>{t("About AgentCity Twin")}</h2>
-        <p>{t("AgentCity Twin is an urban simulation workspace for studying decisions before they are made. Debrecen is the first demonstration city and uses clearly labeled simulated inputs.")}</p>
+        <p>{t("The Debrecen demo uses real map geography with simulated city conditions. The simulation computes the numbers, and local or approved cloud models provide specialist advice.")}</p>
         <div className="public-links"><Link className="button secondary" href="/contact">{t("Contact")}</Link></div>
       </section>
       {!!plans.length&&<section className="public-section" id="plans"><h2>{t("Access plans")}</h2>

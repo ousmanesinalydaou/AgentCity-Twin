@@ -1,4 +1,10 @@
 {
+  "The digital twin brings the road network, transit routes, sensors, and incidents into one map. Each layer helps you see what a decision could affect.": "Duguba misali bɛ siraw, taaraw, dɔnnikɛminɛnw ani kojuguw lajɛ walanda kelen kan. Kunnafoni kelen-kelen bɛ ɲɛnɛbɔ nɔw jira.",
+  "The orchestrator builds a plan and assigns work to specialists in traffic, transit, safety, and other relevant areas. The execution plan shows their tools and findings.": "Baarakɛla kuntigi bɛ labɛnni da ka baara di siraboli, bolocifɛnw ani lakana baarakɛlaw ma. Baarakɛli labɛnni bɛ u ka baarakɛminɛnw ani jaabiw jira.",
+  "Compare a forecast with no new action against the recommended response. Move through five time points to see how the effects change.": "Jaateli min na fɛɛrɛ kura tɛ, o lajɛ ni fɛɛrɛ sugandilen ye. Waati duuru lajɛ walasa ka nɔw ka yɛlɛma ye.",
+  "The Critic checks the results before the decision agent ranks them. Inspect the evidence and record an operator review when required.": "Sɛmɛntiyalikɛla bɛ jaabiw lajɛ sani u ka nɔrɔya. Daliluw lajɛ ka baarakɛla ka jaabi mara ni a mago bɛ yen.",
+  "See how a road closure, transit disruption, or campus event could affect the rest of the city. Compare responses before putting a decision into practice.": "Sira datuguli, bolocifɛn gɛlɛya walima inivɛrisite kɛwale bɛ se ka duguba yɔrɔ wɛrɛw kɛ cogo min na, o lajɛ. Fɛɛrɛw lajɛ sani ka ɲɛnɛbɔ kɛ.",
+  "The Debrecen demo uses real map geography with simulated city conditions. The simulation computes the numbers, and local or approved cloud models provide specialist advice.": "Debrecen misali bɛ dugukolowalanda yɛrɛ ni duguba cogoya kɔrɔbɔlenw kɛ baara la. Kɔrɔbɔli bɛ hakɛw jate, misali sigilenw walima yamaruyalenw bɛ laɲiniw di.",
   "Execution plan": "Baarakɛli labɛnni",
   "Created": "A dara",
   "Planning": "Labɛnni",

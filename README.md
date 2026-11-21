@@ -1,6 +1,6 @@
 # AgentCity Twin
 
-AgentCity Twin is an agentic urban digital twin for evaluating decisions before they are made. Open the Debrecen command center, describe a disruption, and compare response strategies against a modeled baseline. Separate specialist findings, verification, and a persisted audit trail explain how the ranking was produced.
+AgentCity Twin helps city and campus teams see the likely effects of a decision before acting. Its digital twin combines a map and a model of roads, demand, transit, incidents, and sensors. Describe a disruption, compare responses with a do-nothing baseline, and see why one strategy ranked higher. [Product overview](docs/product-overview.md)
 
 ## Run with Docker
 
@@ -19,10 +19,10 @@ Docker Desktop routes specialist advisories to `prism-ml/bonsai-27b` in LM Studi
 ## Try the university incident
 
 1. Select **University corridor accident** under **Ask AgentCity**.
-2. Select **Analyze scenario** and watch the specialist activity.
+2. Select **Analyze scenario** and open **Execution plan** to follow the goal, tools, delegated work, and verification checks.
 3. Use **Predicted** and **Recommended** with the timeline to compare network effects.
 4. Open **Why did AgentCity choose this?** to see agent findings, scoring, evidence, and uncertainty.
-5. View the **Audit trace**, record an operator review, or export JSON and CSV.
+5. View the **Audit trace**, record an operator review when requested, or export JSON and CSV. The app records review decisions. City teams carry out approved actions through their own procedures.
 
 The **Debrecen demo scenarios** picker also includes a downtown tram breakdown, a stadium departure surge, a morning air-quality alert, and an outage affecting essential services. Each preset supplies its own map location, time, duration, severity, population, and constraints. [Offline walkthrough](presentation/index.html)
 

@@ -1,4 +1,10 @@
 {
+  "The digital twin brings the road network, transit routes, sensors, and incidents into one map. Each layer helps you see what a decision could affect.": "Le jumeau numérique réunit le réseau routier, les lignes de transport, les capteurs et les incidents sur une carte. Chaque couche aide à repérer les effets possibles d’une décision.",
+  "The orchestrator builds a plan and assigns work to specialists in traffic, transit, safety, and other relevant areas. The execution plan shows their tools and findings.": "L’orchestrateur établit un plan et répartit le travail entre les spécialistes de la circulation, des transports, de la sécurité et des autres domaines concernés. Le plan d’exécution présente leurs outils et leurs conclusions.",
+  "Compare a forecast with no new action against the recommended response. Move through five time points to see how the effects change.": "Comparez la prévision sans nouvelle mesure à la réponse recommandée. Parcourez cinq étapes pour voir l’évolution des effets.",
+  "The Critic checks the results before the decision agent ranks them. Inspect the evidence and record an operator review when required.": "Le vérificateur contrôle les résultats avant leur classement. Consultez les preuves et consignez l’avis d’un opérateur lorsque nécessaire.",
+  "See how a road closure, transit disruption, or campus event could affect the rest of the city. Compare responses before putting a decision into practice.": "Étudiez les effets qu’une fermeture de route, une perturbation des transports ou un événement universitaire pourrait avoir sur le reste de la ville. Comparez les réponses avant de prendre une décision.",
+  "The Debrecen demo uses real map geography with simulated city conditions. The simulation computes the numbers, and local or approved cloud models provide specialist advice.": "La démonstration de Debrecen utilise une carte réelle et des conditions urbaines simulées. La simulation calcule les chiffres. Les modèles locaux ou infonuagiques approuvés fournissent les avis spécialisés.",
   "Execution plan": "Plan d’exécution",
   "Created": "Créé",
   "Planning": "Planification",

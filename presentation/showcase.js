@@ -40,6 +40,7 @@ function selectFrame(index) {
 
 const images = {
   explanation: ["04-explanation.jpg", "Negotiation record from the university corridor scenario", "The application shows the combined campus measures and their revised score."],
+  plan: ["07-execution-plan.jpg", "Execution plan from a later run of the university corridor scenario", "The execution plan shows completed steps, tool calls, delegations, and the awaiting operator review status."],
   audit: ["05-audit.jpg", "Audit trace from the university corridor scenario", "Logged events show the proposed revision, second simulation, and verification."],
   models: ["06-model-lab.jpg", "Model Lab capability controls", "The Model Lab supports streaming text, image analysis, embeddings, and city tools."],
 };
@@ -53,6 +54,7 @@ function showEvidence(key) {
     ? [activeCase.images.comparison, activeCase.label + " comparison at +30 minutes", "Captured strategy ranking beside baseline and recommended metrics."]
     : images[key] ?? ["03-comparison.jpg", "University corridor scenario comparison", "Captured strategy ranking and outcome comparison."];
   gallery.forEach(item => item.setAttribute("aria-pressed", item.dataset.evidence === key));
+  evidenceImage.onerror = key === "plan" ? () => showEvidence("audit") : null;
   evidenceImage.src = "assets/screenshots/" + file;
   evidenceImage.alt = alt;
   evidenceButton.dataset.caption = caption;

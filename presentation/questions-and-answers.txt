@@ -2,7 +2,7 @@ AGENTCITY TWIN
 Likely audience questions and suggested answers
 
 1. What is AgentCity Twin?
-It is a planning and decision-support workspace. An operator describes a city disruption, compares modeled interventions, and reviews the evidence behind a ranked recommendation.
+It is a planning and decision-support workspace. Its digital twin combines a city map with a model of roads and travel demand. An operator can describe a disruption, compare responses, and review the evidence behind the ranking.
 
 2. Is this live Debrecen data?
 The walkthrough uses a simulated disruption and modeled network inputs. The basemap represents real geography. A site can connect approved feeds with timestamps and supply measurements for calibration.
@@ -32,10 +32,19 @@ Supported paths include GeoJSON, CSV, JSON, GTFS Schedule, GTFS-Realtime, REST, 
 Collect observations with dates and comparable units. Fit the estimate on one portion of the dataset and check residuals against a held-out portion. Review the results with local operators before field use.
 
 11. Can researchers reproduce the result?
-The run records its seed, model version, input fingerprint, scoring weights, and exported evidence. With matching inputs and the same engine version, the deterministic simulation is reproducible. Advisory text can vary.
+The run records its seed, simulation version, input fingerprint, scoring weights, and provider receipts. With matching inputs and the same engine version, the numerical simulation is reproducible. Advisory text can vary.
 
 12. Can it support a different city or a larger workload?
 An organization can configure another city with a connected network and demand pairs. PostgreSQL leases let several workers share a queue. Sizing and response times depend on the network, workloads, and provider capacity.
 
 13. What would you need for a pilot?
 One corridor and a named operator, the local road network and demand, observations with timestamps, a clear evaluation criterion, and consent for any external data or inference services.
+
+14. What do Current, Predicted, and Recommended mean?
+Current shows the city inputs available to the workspace. Predicted shows how the disruption evolves without a new response. Recommended shows the same disruption with the top-ranked response.
+
+15. What do the agents do on their own?
+The orchestrator builds a plan, checks inputs, and delegates independent comparisons. Specialists use city and simulation tools to evaluate their objectives. The worker records their observations and can run a second simulation or correct evidence rejected by the Critic.
+
+16. What does verification establish?
+The Critic checks routes against the modeled network, verifies scores and timeline coverage, and checks supporting evidence. Field accuracy requires separate validation against local measurements. An unresolved constraint can leave a verified baseline and a partially completed run.

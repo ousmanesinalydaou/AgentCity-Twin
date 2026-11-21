@@ -34,7 +34,7 @@
 \sectionlabel{Debrecen, Hungary}
 {\LARGE\bfseries Test city decisions before acting.\par}
 \medskip
-AgentCity Twin compares modeled responses to a disruption and shows the evidence behind its recommendation.
+AgentCity Twin connects a city map to a model of roads and travel demand so teams can compare responses to a disruption.
 \end{column}
 \begin{column}{.61\textwidth}
 \centering
@@ -43,7 +43,7 @@ AgentCity Twin compares modeled responses to a disruption and shows the evidence
 \credit
 \end{column}
 \end{columns}
-\note{0:00--0:55. Planning teams often have to choose a response before they can see its wider effects. Point at the university corridor and forecast readout. This simulated exercise shows how a city planner can compare the effects of a decision before carrying it out.}
+\note{0:00--0:55. A closure may make one junction safer while moving traffic onto nearby streets. The digital twin lets city and campus teams explore that trade-off. Point at the university corridor and forecast readout. The geography is real. The city conditions in this demo are simulated.}
 \end{frame}
 
 \begin{frame}{An accident near the university at 17:00}
@@ -70,12 +70,12 @@ The operator needs to preserve access around the corridor and keep transit movin
 \renewcommand{\arraystretch}{1.67}
 \begin{tabular}{@{}p{.24\linewidth}p{.69\linewidth}@{}}
 \textcolor{teal}{\textbf{Describe}} & Set the location, start time, and severity.\\
-\textcolor{teal}{\textbf{Simulate}} & Test the baseline and candidate interventions over five time points.\\
-\textcolor{teal}{\textbf{Review}} & Specialists compare modeled outcomes against their own objectives.\\
-\textcolor{teal}{\textbf{Compare}} & The network solver scores the options and any negotiated revision.\\
-\textcolor{teal}{\textbf{Decide}} & An authorized operator reviews the evidence and can record a decision.\\
+\textcolor{teal}{\textbf{Plan}} & The orchestrator checks inputs and delegates tasks to relevant specialists.\\
+\textcolor{teal}{\textbf{Simulate}} & The network solver tests the baseline and candidate responses over five time points.\\
+\textcolor{teal}{\textbf{Verify}} & The Critic checks the evidence and can send a result back for correction.\\
+\textcolor{teal}{\textbf{Review}} & The decision agent ranks the verified options for the operator.\\
 \end{tabular}
-\note{1:50--2:50. Explain that the same modeled evidence can lead specialists to prefer different actions. The workspace weights combine their objectives in the ranking. The audit keeps a record of the process and makes the result available to an operator.}
+\note{1:50--2:50. Open the execution plan to show delegated tasks and tool observations. Traffic, transit, and safety specialists can reach different conclusions from the same evidence. The workspace weights combine their objectives in the final ranking.}
 \end{frame}
 
 {
@@ -115,7 +115,7 @@ Weighted strategy score out of 100\\
 \end{column}
 \end{columns}
 \medskip
-{\scriptsize Emissions change is relative to the modeled reference level.}
+{\scriptsize The baseline assumes no new response. Emissions change is relative to the modeled reference level.}
 \note{2:50--4:10. Point out the baseline transit delay of 9.4 minutes and the recommended value of 0.0 in this frame. Explain that zero is a modeled estimate. The weighted score summarizes several objectives. Switch to the web version and select +120 minutes if you want to show recovery.}
 \end{frame}
 }
@@ -143,18 +143,23 @@ The original leader retained the top ranking.
 \begin{frame}{A reviewer can trace how the decision was made}
 \begin{columns}[c,onlytextwidth]
 \begin{column}{.32\textwidth}
-The audit records the proposal, second simulation, checks, and final score.
+The execution plan shows delegated steps, tool observations, and progress.
 
 \medskip
-High-impact recommendations can require a human review and a written decision.
+The audit trace preserves the evidence. An operator reviews high-impact recommendations.
 \end{column}
 \begin{column}{.65\textwidth}
 \centering
-\capture{.70}{05-audit.jpg}
-\par\smallskip{\scriptsize Recorded proposal, verification, and decision events}
+\IfFileExists{assets/screenshots/07-execution-plan.jpg}{
+  \capture{.70}{07-execution-plan.jpg}
+  \par\smallskip{\scriptsize Execution plan from a later run of the same scenario}
+}{
+  \capture{.70}{05-audit.jpg}
+  \par\smallskip{\scriptsize Recorded proposal, checks, and decision events}
+}
 \end{column}
 \end{columns}
-\note{5:10--6:05. Point at the verification event and explain what it checks. The simulation records timeline coverage and score bounds for this run. The approval step lets an authorized operator record a decision with a note.}
+\note{5:10--6:05. Point at the tool calls or audit events. The Critic checks the modeled routes, scores, and supporting evidence. Field validation uses local measurements. An authorized operator can record a decision with a note.}
 \end{frame}
 
 \begin{frame}{LM Studio provides local specialist advisories}
